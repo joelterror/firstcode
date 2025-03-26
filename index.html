@@ -77,6 +77,48 @@
             background: #6a6a6a;
             padding: 20px;
             text-align: center;
+            display: flex;
+            justify-content: space-between; /* Distribuye los elementos de izquierda a derecha */
+            align-items: center;
+            flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+        }
+
+        .bottom-container > div {
+            width: 33%; /* Asignamos un 33% de ancho a cada sección */
+        }
+
+        .bottom-container > div:first-child {
+            text-align: left; /* Alineamos el texto a la izquierda en el primer div */
+        }
+
+        .bottom-container > div:nth-child(2) {
+            text-align: center; /* Alineamos el texto al centro en la sección de soporte */
+        }
+
+        .bottom-container > div:nth-child(4) {
+            text-align: right; /* Alineamos el texto a la derecha en la sección de diseñador */
+        }
+
+        /* Cambiar el color de los textos a negro por defecto */
+        .bottom-container p {
+            color: black; /* Cambiamos el color del texto a negro para todos los párrafos */
+        }
+
+        /* Especificar que solo los párrafos debajo de "Soporte" y "Diseñador" sean blancos */
+        .bottom-container > div:nth-child(2) p,
+        .bottom-container > div:nth-child(3) p {
+            color: white; /* Dejamos los textos de soporte y diseñador en blanco */
+        }
+
+        /* Cambiar color de los títulos de Soporte y Diseñador a negro */
+        .bottom-container > div:nth-child(2) strong,
+        .bottom-container > div:nth-child(3) strong {
+            color: black; /* Cambiamos el color de los títulos a negro */
+        }
+
+        /* Hacer que el primer div (Barcelona) esté encima de los otros en pantallas pequeñas */
+        .bottom-container > div:first-child {
+            order: -1; /* Lo coloca primero cuando se envuelven los elementos */
         }
 
         .bottom-footer {
@@ -106,6 +148,18 @@
             .extra-section div {
                 width: 100%;
                 margin-bottom: 20px;
+            }
+
+            /* En pantallas más pequeñas, la disposición del footer cambia */
+            .bottom-container > div {
+                width: 100%; /* Ocupa todo el ancho */
+                text-align: center; /* Centra el texto */
+            }
+
+            /* Poner el texto de Barcelona encima de Soporte y Diseñador */
+            .bottom-container > div:first-child {
+                order: -1;
+                text-align: center;
             }
         }
     </style>
@@ -152,9 +206,19 @@
         </div>
     </section>
     <div class="bottom-container">
-        <p>Hecho en Barcelona con corazón y mucho café!</p>
-        <p>Soporte: <a href="#">Repositorio de GitHub</a> | <a href="#">Reportar un error</a></p>
-        <p>Diseñador: <a href="#">Twitter</a> | <a href="#">Instagram</a></p>
+        <div>
+            <p>¡Hecho en Barcelona con corazón y mucho café!</p>
+        </div>
+        <div>
+            <p><strong>Soporte</strong></p>
+            <p>Repositorio de GitHub</p>
+            <p>Reportar un error</p>
+        </div>
+        <div>
+            <p><strong>Diseñador</strong></p>
+            <p>Twitter</p>
+            <p>Instagram</p>
+        </div>
     </div>
     <div class="bottom-footer">
         <p>2021 - 2022</p>
